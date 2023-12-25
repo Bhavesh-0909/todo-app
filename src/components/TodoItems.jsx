@@ -38,7 +38,7 @@ function TodoItems({todo}) {
                 />
 
                 <input
-                    className={`max-w-[400px] w-8/12 p-3 pr-4  bg-[#CBF1F5] rounded-l-xl outline-none ${todo.checked?"line-through opacity-50":"text-black"}`}
+                    className={`max-w-[400px] w-8/12 px-3 py-2 bg-[#CBF1F5] rounded-l-xl outline-none ${todo.checked?"line-through opacity-50":"text-black"}`}
                     type="text"
                     value={todomsg}
                     readOnly={!editable}

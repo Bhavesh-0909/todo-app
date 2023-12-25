@@ -1,10 +1,24 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import InputBar from './components/InputBar';
 import TodoItems from './components/TodoItems';
 import TodoContext from './context/TodoContext';
 
 function App() {
-  const {todos}=useContext(TodoContext)
+  const {todos, setTodos}=useContext(TodoContext);
+
+  useEffect(() => {
+    const storage = JSON.parse(localStorage.getItem("todos"))
+
+    if ( storage && storage.length > 0) {
+      setTodos(storage)
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }, [todos])
+
+
   return (
     <div className="w-screen px-10 min-h-screen bg-[#F3F8FF] flex flex-col items-center">
       
